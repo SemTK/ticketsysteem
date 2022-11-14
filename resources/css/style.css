@@ -11,5 +11,7 @@ footer{
 }
 .card-img-top{
     height: 225px;
-    
+}
+.navbar-text a{
+    margin-right: 20px;
 }
