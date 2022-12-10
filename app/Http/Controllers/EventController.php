@@ -22,4 +22,28 @@ class EventController extends Controller
 
         return redirect('/add-event');
     }
+
+    public function deleteEvent($eventId){
+        $event = Event::findOrFail($eventId);
+        $event->delete();
+
+        return redirect('events');
+    }
+
+    public function editEvent(Request $request, $eventId){
+        $event = Event::findOrFail($eventId);
+
+        $event->name = $request->input('eventName');
+        $event->photo = $request->input('photo');
+        $event->event_start = $request->input('event_start');
+        $event->event_end = $request->input('event_end');
+        $event->available_tickets = $request->input('amountOfTickets');
+        $event->location = $request->input('location');
+        $event->price = $request->input('price');
+        $event->description = $request->input('desc');
+
+        $event->save();
+
+        return redirect('events');
+    }
 }
