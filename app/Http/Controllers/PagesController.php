@@ -17,14 +17,6 @@ class PagesController extends Controller
         ]);
     }
 
-    public function viewContact() {
-        return view('contact');
-    }
-
-    public function viewAboutUs(){
-        return view('about-us');
-    }
-
     public function viewAddEvent(){
         return view('add-event');
     }
@@ -33,5 +25,12 @@ class PagesController extends Controller
         $allEvents = Event::all();
 
         return view('events', ['events' => $allEvents]);
+    }
+    public function viewEditPage($eventId){
+        $event = Event::FindOrFail($eventId);
+
+        return view('edit-event', [
+            "event" => $event,
+        ]);
     }
 }
