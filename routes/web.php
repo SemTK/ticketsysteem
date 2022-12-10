@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PagesController::class, 'viewHome'])->name('home');
 
-Route::get('/contact', [PagesController::class, 'viewContact'])->name('contact');
-
-Route::get('/about-us', [PagesController::class, 'viewAboutUs'])->name('about-us');
-
 Route::post('/save-ticket', [TicketsController::class, 'saveTicket'])->name('saveTicket');
 
-Route::post('/add-event', [EventController::class, 'addEvent'])->name('addEvent');
+Route::post('/add-event', [EventController::class, 'addEvent'])->name('create-event');
 
 Route::get('/add-event', [PagesController::class, 'viewAddEvent'])->name('add-event')->middleware('auth');
 
 Route::get('/events', [PagesController::class, 'viewEvents'])->name('events');
 
-Route::post('/contact', [TicketController::class, 'ticketForm'])->name('ticketForm');
+Route::post('/event/deleted/{eventId}', [EventController::class, 'deleteEvent'])->name('deleteEvent')->middleware('admin');
+
+Route::get('/edit-event/{eventId}', [PagesController::class, 'viewEditPage'])->name('viewEditPage')->middleware('admin');
+
+Route::post('/event-edited/{eventId}', [EventController::class, 'editEvent'])->name('editEvent')->middleware('admin');
 
 require __DIR__.'/auth.php';
