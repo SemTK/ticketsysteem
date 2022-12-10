@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>Add Event</h1>
-<form method="POST" action="{{ route('addEvent') }}">
+<form method="POST" action="{{ route('create-event') }}">
     @csrf
     <div class="mb-3 row">
         <label for="eventName" class="col-sm-2 col-form-label">Event Name</label>
