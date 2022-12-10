@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->tinyText('photo');
+            $table->longText('photo');
             $table->date('event_start');
             $table->date('event_end');
             $table->unsignedInteger('available_tickets');
