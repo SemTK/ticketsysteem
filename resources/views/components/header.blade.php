@@ -12,14 +12,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('events') }}">List of Events</a>
                 </li>
-                @if(Auth::user())
-                <a class="nav-link" href="">Mijn tickets</a>
+                @if(Auth::user()) 
+                <a class="nav-link" href="{{ route('my-tickets') }}">My tickets</a>
                 @endif
             </ul>
             
             <span class="navbar-text">
                 @if(Auth::user())
-
+                
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="nav-link">logout</button>
