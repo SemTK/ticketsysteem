@@ -33,4 +33,7 @@ class PagesController extends Controller
             "event" => $event,
         ]);
     }
+    public function viewMyTicketsPage(){
+        return view('my-tickets');
+    }
 }
