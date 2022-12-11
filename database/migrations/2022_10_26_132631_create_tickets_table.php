@@ -19,8 +19,6 @@ return new class extends Migration
             $table->binary('qr_hash');
             $table->unsignedBigInteger('event_id');
             $table->timestamps();
-
-            
         });
     }
 
