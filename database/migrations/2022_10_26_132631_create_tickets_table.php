@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->binary('qr_hash');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->binary('qr_hash')->nullable();
             $table->unsignedBigInteger('event_id');
             $table->timestamps();
         });

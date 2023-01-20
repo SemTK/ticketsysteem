@@ -18,6 +18,9 @@
         <div class="card-body">
             <h5 class="card-title">{{ $event->name }}</h5>
             <p class="card-text">{{ $event->description }}</p>
+            <p class="card-text">---------------------</p>
+            <p class="card-text">Starts on: {{ $event->event_start}}</p>
+            <p class="card-text">Ends on: {{ $event->event_end}}</p>
         </div>
         @if(Auth::user())
         <ul class="list-group list-group-flush">
@@ -36,6 +39,13 @@
                         <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete this event?')">Delete Event</button>
                     </form>
 
+                </div>
+            </li>
+            @else
+
+            <li class="list-group-item">
+                <div class="orderTicket-button">
+                    <a href="{{ route('orderTicketsPage', $event->id) }}" class="btn btn-primary">Order Ticket(s)</a>
                 </div>
             </li>
 

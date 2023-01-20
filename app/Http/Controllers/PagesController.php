@@ -36,4 +36,11 @@ class PagesController extends Controller
     public function viewMyTicketsPage(){
         return view('my-tickets');
     }
+    public function viewOrderTicketPage($eventId){
+        $event = Event::findOrFail($eventId);
+
+        return view('order-ticket-page', [
+            "event" => $event,
+        ]);
+    }
 }
